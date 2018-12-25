@@ -36,7 +36,7 @@ let b = schedule.scheduleJob(target, function() {
   checkin();
 });
 
-target = new Date(2018, 11, 25, 7, 11, 30);
+target = new Date(2018, 11, 25, 7, 13, 0);
 
 let c = schedule.scheduleJob(target, function() {
   checkin();
