@@ -1,10 +1,10 @@
 const Nightmare = require('nightmare');
-const nightmare = Nightmare({show: true});
 
 let schedule = require('node-schedule');
 
 
 function checkin() {
+  let nightmare = Nightmare({show: false});
 
   nightmare
   .goto('https://www.southwest.com/air/check-in/index.html')
@@ -27,5 +27,17 @@ function checkin() {
 let target = new Date(2018, 11, 25, 7, 10, 5);
 
 let a = schedule.scheduleJob(target, function() {
+  checkin();
+});
+
+target = new Date(2018, 11, 25, 7, 11, 30);
+
+let b = schedule.scheduleJob(target, function() {
+  checkin();
+});
+
+target = new Date(2018, 11, 25, 7, 13, 0);
+
+let c = schedule.scheduleJob(target, function() {
   checkin();
 });
