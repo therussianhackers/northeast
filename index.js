@@ -4,12 +4,12 @@ let schedule = require('node-schedule');
 
 
 function checkin() {
-  let nightmare = Nightmare({show: false});
+  let nightmare = Nightmare({show: true});
 
   nightmare
   .goto('https://www.southwest.com/air/check-in/index.html')
-  .type('#confirmationNumber', 'QRXVQ9')
-  .type('#passengerFirstName', 'Aaron')
+  .type('#confirmationNumber', 'MAYE5Q')
+  .type('#passengerFirstName', 'Abigail')
   .type('#passengerLastName', 'Tsui')
   .click('#form-mixin--submit-button')
   .wait('button.actionable.actionable_button.actionable_large-button.actionable_no-outline.actionable_primary.button.submit-button.air-check-in-review-results--check-in-button')
@@ -24,19 +24,19 @@ function checkin() {
 
 // checkin();
 
-let target = new Date(2018, 11, 25, 7, 10, 5);
+let target = new Date(2018, 11, 31, 19, 0, 5);
 
 let a = schedule.scheduleJob(target, function() {
   checkin();
 });
 
-target = new Date(2018, 11, 25, 7, 11, 30);
+target = new Date(2018, 11, 31, 19, 1, 5);
 
 let b = schedule.scheduleJob(target, function() {
   checkin();
 });
 
-target = new Date(2018, 11, 25, 7, 13, 0);
+target = new Date(2018, 11, 31, 19, 2, 5);
 
 let c = schedule.scheduleJob(target, function() {
   checkin();
